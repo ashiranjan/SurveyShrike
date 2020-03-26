@@ -16,13 +16,11 @@ namespace SurveyShrikeApp.Controllers
     {
         private DBModel db = new DBModel();
 
-        // GET: api/Survey
         public IQueryable<Survey> GetSurveys()
         {
             return db.Surveys;
         }
 
-        // GET: api/Survey/5
         [ResponseType(typeof(Survey))]
         public IHttpActionResult GetSurvey(Guid id)
         {
@@ -35,7 +33,6 @@ namespace SurveyShrikeApp.Controllers
             return Ok(survey);
         }
 
-        // PUT: api/Survey/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSurvey(Guid id, Survey survey)
         {
@@ -62,11 +59,10 @@ namespace SurveyShrikeApp.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Survey
+
         [ResponseType(typeof(Survey))]
         public IHttpActionResult PostSurvey(Survey survey)
         {
@@ -96,7 +92,6 @@ namespace SurveyShrikeApp.Controllers
             return CreatedAtRoute("DefaultApi", new { id = survey.Id }, survey);
         }
 
-        // DELETE: api/Survey/5
         [ResponseType(typeof(Survey))]
         public IHttpActionResult DeleteSurvey(Guid id)
         {
@@ -105,7 +100,6 @@ namespace SurveyShrikeApp.Controllers
             {
                 return NotFound();
             }
-
             db.Surveys.Remove(survey);
             db.SaveChanges();
 
@@ -120,8 +114,7 @@ namespace SurveyShrikeApp.Controllers
             }
             base.Dispose(disposing);
         }
-
-        private bool SurveyExists(Guid id)
+       private bool SurveyExists(Guid id)
         {
             return db.Surveys.Count(e => e.Id == id) > 0;
         }

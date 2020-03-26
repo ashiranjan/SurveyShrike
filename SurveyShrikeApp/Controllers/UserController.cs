@@ -13,13 +13,11 @@ namespace SurveyShrikeApp.Controllers
     {
         private DBModel db = new DBModel();
 
-        // GET: api/User
         public IQueryable<User> GetUsers()
         {
             return db.Users;
         }
 
-        // GET: api/User/5
         [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(Guid id)
         {
@@ -32,15 +30,9 @@ namespace SurveyShrikeApp.Controllers
             return Ok(user);
         }
 
-        // PUT: api/User/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(Guid id, User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             if (id != user.Id)
             {
                 return BadRequest();
@@ -67,17 +59,11 @@ namespace SurveyShrikeApp.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/User
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             db.Users.Add(user);
-
             try
             {
                 db.SaveChanges();
@@ -97,7 +83,6 @@ namespace SurveyShrikeApp.Controllers
             return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
         }
 
-        // DELETE: api/User/5
         [ResponseType(typeof(User))]
         public IHttpActionResult DeleteUser(Guid id)
         {
@@ -121,7 +106,6 @@ namespace SurveyShrikeApp.Controllers
             }
             base.Dispose(disposing);
         }
-
         private bool UserExists(Guid id)
         {
             return db.Users.Count(e => e.Id == id) > 0;
