@@ -16,10 +16,15 @@ namespace SurveyShrikeApp.Models
     {
         public System.Guid Id { get; set; }
         public System.Guid CreatedBy { get; set; }
-        public string SingleLineInput { get; set; }
-        public string Paragraph { get; set; }
-        public bool RadioButton { get; set; }
-        public int Dropdown { get; set; }
+        public System.DateTime ProductStartDate { get; set; }
+        public string ProductName { get; set; }
+        public string ReasonForDissatisfaction { get; set; }
+        public bool IsExpected { get; set; }
+        public bool DoRecommend { get; set; }
+        public int RatingId { get; set; }
+        public int MostSatisfiedTypeId { get; set; }
+        public int LeastSatisfiedTypeId { get; set; }
+        public string Signature { get; set; }
         public bool IsPublish { get; set; }
         public System.DateTime CreatedOn { get; set; }
     
