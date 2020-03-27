@@ -1,0 +1,18 @@
+<div class="container container-box">
+  <button
+    type="button"
+    *ngIf="!loggedIn"
+    (click)="signInWithGoogle()"
+    class="btn btn-secondary sign-btn"
+  >
+    Sign In With Google
+  </button>
+  <button
+    type="button"
+    *ngIf="loggedIn"
+    (click)="signOut()"
+    class="btn btn-secondary sign-btn"
+  >
+    Sign Out
+  </button>
+</div>

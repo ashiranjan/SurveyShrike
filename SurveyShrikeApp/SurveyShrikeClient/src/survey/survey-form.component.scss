@@ -1,0 +1,25 @@
+.survey--form{
+    background-color: #f2f2f2;
+    &-box{
+        background-color: white;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px 10px; 
+    }
+}
+
+.checkbox-label {
+    position: relative;
+    left: 5px;
+    top: -1px
+}
+
+.margin-top-5{
+    margin-top: 5px;
+}
+
+.date-picker{
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+}
