@@ -1,0 +1,128 @@
+<form [formGroup]="surveyForm">
+  <div class="container-fluid survey--form">
+    <div class="row">
+      <div style="height: 100px;background-color: #183d68;" class="col-sm-12">
+        <h5 class="text-center" style="color: white;margin-top: 36px;">
+          SurveyShrike
+        </h5>
+        <button type="button" (click)="ExitSurvey()" class="btn btn-secondary sign-btn float-right"
+          style="    margin-top: -9px;font-size: 12px;">
+          Exit Survey
+        </button>
+      </div>
+
+      <div *ngIf = saveSuccess class="alert alert-success" role="alert">
+        Survey has been Submitted Sucessfully.
+      </div>
+      <div style="height: 30px;background-color: #b3cdf3;" class="col-sm-12"></div>
+      <div class="col-sm-6 offset-sm-3 survey--form-box">
+        <div class="row form-group">
+          <p class="col-sm-12">When did you use our product or service?</p>
+
+          <div class="col-sm-12">
+            <input type="date" class="date-picker col-sm-6" formControlName="usedDate" />
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">Name of the product or service</p>
+
+          <div class="col-sm-12">
+            <input type="text" class="form-control margin-top-5" formControlName="name" />
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">
+            Overall, how satisfied are you with the product or service?
+          </p>
+
+          <div class="col-sm-12">
+            <select class="form-control" formControlName="satisfication">
+              <option value="1">Very Satisfied</option>
+              <option value="2">Satisfied</option>
+              <option value="3">Neutral</option>
+              <option value="4">UnSatisfied</option>
+              <option value="5">Very UnSatisfied</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">
+            Did our product or service meet your expectations?
+          </p>
+          <div class="col-sm-12">
+            <input type="radio" [value]="yesNo" name="expectation" formControlName="expectation" />
+            <label class="col-form-label checkbox-label">Yes</label>
+          </div>
+
+          <div class="col-sm-12">
+            <input type="radio" [value]="!yesNo" name="expectation" formControlName="expectation" />
+            <label class="col-form-label checkbox-label">No</label>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">
+            Would you recommend this product or service to a friend?
+          </p>
+          <div class="col-sm-12">
+            <input type="radio" [value]="yesNo" name="recommendation" formControlName="recommendation" />
+            <label class="col-form-label checkbox-label">Yes</label>
+          </div>
+
+          <div class="col-sm-12">
+            <input type="radio" [value]="!yesNo" name="recommendation" formControlName="recommendation" />
+            <label class="col-form-label checkbox-label">No</label>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">
+            What aspect of the product or service were you most satisfied by?
+          </p>
+
+          <div class="col-sm-12">
+            <select class="form-control" formControlName="mostsatisfied">
+              <option value="1">Quality</option>
+              <option value="2">Price</option>
+              <option value="3">Customer Service</option>
+              <option value="4">Installation or first use experience</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">
+            What aspect of the product or service were you least satisfied by?
+          </p>
+
+          <div class="col-sm-12">
+            <select class="form-control" formControlName="leastsatisfied">
+              <option value="1">Quality</option>
+              <option value="2">Price</option>
+              <option value="3">Customer Service</option>
+              <option value="4">Installation or first use experience</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">Please explain why:</p>
+
+          <div class="col-sm-12">
+            <textarea class="form-control" formControlName="reasonfordisatisfication" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="row form-group">
+          <p class="col-sm-12">Signature</p>
+
+          <div class="col-sm-12">
+            <input type="text" class="date-picker col-sm-6" formControlName="signature" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <button type="button" (click)="SaveSurvey()" class="btn btn-primary"data-dismiss="alert">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
